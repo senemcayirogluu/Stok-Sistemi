@@ -1,0 +1,45 @@
+﻿@using StokMVC.Models.Entity
+@model List<TblUrunler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using(Html.BeginForm("Index","Urun",FormMethod.Get))
+{
+    <p>
+        Ürün Adı: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>ADI</th>
+        <th>MARKA</th>
+        <th>STOK DURUMU</th>
+        <th>ALIŞ FİYATI</th>
+        <th>SATIŞ FİYATI</th>
+        <th>KATEGORİ</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach(var y in Model)
+    {
+        <tr>
+            <td>@y.id</td>
+            <td>@y.ad</td>
+            <td>@y.marka</td>
+            <td>@y.stok</td>
+            <td>@y.alisfiyat</td>
+            <td>@y.satisfiyat</td>
+            <td>@y.TblKategori.ad</td>
+            <td><a href="/Urun/UrunSil/@y.id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Urun/UrunGetir/@y.id" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Urun/YeniUrun" class="btn btn-primary">Ürün Ekle</a>
+

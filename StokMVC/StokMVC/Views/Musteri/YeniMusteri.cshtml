@@ -1,0 +1,26 @@
+﻿@model StokMVC.Models.Entity.TblMusteri
+@{
+    ViewBag.Title = "YeniMusteri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <h2>Yeni Müşteri Ekleme</h2>
+    @Html.HiddenFor(x => x.id, new { @class = "form-control" })
+    <br />
+    <label>Müşteri Adı Giriniz: </label>
+    @Html.TextBoxFor(x => x.ad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ad, "", new { @style = "color: orange" })
+    <br />
+    <label>Müşteri Soyadı Giriniz: </label>
+    @Html.TextBoxFor(x => x.soyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.soyad, "", new { @style = "color: orange" })
+    <br />
+    <label>Şehir Giriniz: </label>
+    @Html.TextBoxFor(x => x.sehir, new { @class = "form-control" })
+    <br />
+    <label>Bakiye Giriniz: </label>
+    @Html.TextBoxFor(x => x.bakiye, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success" style="margin-top:15px">Müşteri Ekle</button>
+</form>
